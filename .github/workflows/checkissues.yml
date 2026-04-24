@@ -6,7 +6,8 @@ jobs:
     check-issue:
         runs-on: ubuntu-latest
         steps: 
-          - name: Output Github context
+          - name: Only run for newly opened issues
+            if: github.event.action == 'opened'
             run: |
                 echo "Issue number: ${{ github.event.issue.number }}"
                 echo "Title: ${{ github.event.issue.title }}"
