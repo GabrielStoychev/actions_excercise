@@ -1,0 +1,10 @@
+name: Check Issues
+on:
+  issues:
+    types: [opened]
+jobs:
+    check-issue:
+        runs-on: ubuntu-latest
+        steps: 
+          - name: Output Github context
+            run: echo ${{ github.event.issue }}
